@@ -38,19 +38,20 @@ public class InputMethods {
 
         Contacts person=new Contacts(firstName,lastName,address, city,state,zip,phoneNumber,email);
         ContactList.add(person);
+        System.out.println(ContactList);
+
         return person;
     }
     public void editContact()
     {
-        System.out.println("Enter a Name to Edit : ");
+        System.out.println("Enter a name to edit : ");
         String newName=sc.next();
         boolean contactFound=false;
 
         for (int i=0;i<ContactList.size();i++) {
             Contacts contacts=ContactList.get(i);
 
-            if(newName.equals(contacts.getFirstName()))
-        {
+            if(newName.equals(contacts.getFirstName())) {
             
             System.out.println("Enter option to edit :\n 1)First Name \n 2)Last Name \n 3)Address \n 4)City \n 5)State \n 6)Zip \n 7)Phone Number \n 8)Email ");
             int option=sc.nextInt();
@@ -82,10 +83,26 @@ public class InputMethods {
             if (!contactFound) {
                 System.out.println("Contact not found with the given name: " + newName);
             }
-
         }
+    }
 
+    public void deleteContact() {
+        System.out.println("Enter a name to delete");
+        String newName = sc.next();
+        boolean contactFound = false;
 
+        for (int i = 0; i < ContactList.size(); i++) {
+            Contacts contacts = ContactList.get(i);
+
+            if(newName.equals(contacts.getFirstName())) {
+                ContactList.remove(i);
+                contactFound=true;
+                System.out.println("Contact deleted.");
+            }
+        }
+        if (!contactFound) {
+            System.out.println("Contact not found with the given name: " + newName);
+        }
     }
 
 }
