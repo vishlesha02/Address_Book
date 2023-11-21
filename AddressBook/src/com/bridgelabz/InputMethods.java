@@ -105,4 +105,17 @@ public class InputMethods {
         }
     }
 
+    public void addMultiplePerson()
+    {
+        System.out.println("Enter number of contacts you want to add");
+        int input=sc.nextInt();
+
+        for (int i=0;i<input;i++)
+        {
+            createContact();
+            System.out.println(i + 1 + " contact created successfully");
+        }
+        System.out.println(ContactList);
+    }
+
 }

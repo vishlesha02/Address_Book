@@ -10,7 +10,7 @@ public class AddressBookMain {
 
         String s;
             do {
-                System.out.println("Please Enter a Number for Following Options :\n 1) Add New Contact \n 2) Edit Contact \n 3) Delete Contact");
+                System.out.println("Please Enter a Number for Following Options :\n 1) Add New Contact \n 2) Edit Contact \n 3) Delete Contact \n 4) Add Multiple Persons");
                 int option = sc.nextInt();
                 switch (option) {
                     case 1:
@@ -27,6 +27,11 @@ public class AddressBookMain {
                         obj.deleteContact();
                         System.out.println("---------------------------------------------------------------------------------------------------------------------------");
                         break;
+                    case 4:
+                        obj.addMultiplePerson();
+                        System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+                        break;
+
 
                     default:
                         break;
