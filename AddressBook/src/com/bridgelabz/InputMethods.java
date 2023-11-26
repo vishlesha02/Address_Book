@@ -11,39 +11,55 @@ public class InputMethods {
     ArrayList<Contacts> ContactList=new ArrayList<>();
     HashMap<String, ArrayList<Contacts>> addressBooks = new HashMap<>();
 
-    public Contacts createContact()
+    public void createContact()
     {
+
         System.out.print("Enter First Name : ");
         String firstName=sc.next();
 
+        boolean isDuplicate = ContactList.stream().anyMatch(person -> person.getFirstName().equals(firstName));
+        if(isDuplicate)
+        {
+            System.out.println("Contact with " + firstName + " already exsist!!");
+            return;
+        }
+        Contacts person=new Contacts();
+        person.setFirstName(firstName);
+
         System.out.print("Enter Last Name : ");
         String lastName=sc.next();
+        person.setLastName(lastName);
 
         System.out.print("Enter Address : ");
         String address=sc.next();
+        person.setAddress(address);
 
         System.out.print("Enter City : ");
         String city= sc.next();
+        person.setCity(city);
 
         System.out.print("Enter State : ");
         String state=sc.next();
+        person.setState(state);
+
 
         System.out.print("Enter zip : ");
         String zip=sc.next();
+        person.setZip(zip);
 
         System.out.print("Enter PhoneNumber : ");
         String phoneNumber=sc.next();
+        person.setPhoneNumber(phoneNumber);
 
         System.out.print("Enter EmailId : ");
         String email=sc.next();
+        person.setEmail(email);
 
         System.out.println("---------------------------------------------------------------------------------------------------------------------------");
-
-        Contacts person=new Contacts(firstName,lastName,address, city,state,zip,phoneNumber,email);
         ContactList.add(person);
         System.out.println(ContactList);
 
-        return person;
+
     }
     public void editContact()
     {
