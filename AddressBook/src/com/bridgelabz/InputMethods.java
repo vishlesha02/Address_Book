@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class InputMethods {
@@ -8,6 +9,8 @@ public class InputMethods {
     Scanner sc=new Scanner(System.in);
 
     ArrayList<Contacts> ContactList=new ArrayList<>();
+    HashMap<String, ArrayList<Contacts>> addressBooks = new HashMap<>();
+
     public Contacts createContact()
     {
         System.out.print("Enter First Name : ");
@@ -118,4 +121,22 @@ public class InputMethods {
         System.out.println(ContactList);
     }
 
+    public void addMultipleAddressBook() {
+        System.out.println("Enter number of address book you want to add");
+        int noOfAddressBooks = sc.nextInt();
+
+        for (int i = 1; i <= noOfAddressBooks; i++) {
+            System.out.println("Enter the name for Address Book " + i);
+            String addressBookName = sc.next();
+
+            if (addressBooks.containsKey(addressBookName)) {
+                System.out.println("Address Book with the name '" + addressBookName + "' already exists.");
+            } else {
+                addressBooks.put(addressBookName, ContactList);
+
+                System.out.println("Address Book '" + addressBookName + "' created successfully.");
+                this.addMultiplePerson();
+            }
+        }
+    }
 }
