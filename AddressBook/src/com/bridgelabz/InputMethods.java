@@ -210,6 +210,33 @@ public class InputMethods {
             }
         }
     }
+
+    public void countPersonInCityOrState()
+    {
+        System.out.println("Enter the name of address book");
+        String addressBookName = sc.next();
+
+        if (!addressBooks.containsKey(addressBookName)) {
+            System.out.println("Address book with name " + addressBookName + " not found.");
+        } else {
+            System.out.println("Enter name of city or state");
+            String cityOrState = sc.next();
+
+            List<Contacts> filteredContacts = addressBooks.get(addressBookName).stream()
+                    .filter(person -> person.getCity().equalsIgnoreCase(cityOrState) || person.getState().equalsIgnoreCase(cityOrState))
+                    .collect(Collectors.toList());
+            long count = filteredContacts.size();
+
+
+            if (filteredContacts.isEmpty()) {
+                System.out.println("No contacts found in " + cityOrState);
+            } else {
+                System.out.println("Count: " + count);
+            }
+
+        }
+    }
+
 }
 
 
