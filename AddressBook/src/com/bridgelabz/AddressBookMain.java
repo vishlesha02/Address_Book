@@ -43,6 +43,10 @@ public class AddressBookMain {
                         obj.countPersonInCityOrState();
                         System.out.println("---------------------------------------------------------------------------------------------------------------------------");
                         break;
+                    case 8:
+                        obj.sortPersonByNameAlphabetically();
+                        System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+                        break;
                     default:
                         break;
 

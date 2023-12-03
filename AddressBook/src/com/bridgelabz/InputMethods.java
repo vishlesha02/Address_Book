@@ -237,7 +237,33 @@ public class InputMethods {
         }
     }
 
+
+    public void sortPersonByNameAlphabetically()
+    {
+        System.out.println("Enter the name of address book");
+        String addressBookName = sc.next();
+
+        if (!addressBooks.containsKey(addressBookName)) {
+            System.out.println("Address book with name " + addressBookName + " not found.");
+        } else {
+            List<Contacts> contactsList = addressBooks.get(addressBookName);
+
+            if (contactsList.isEmpty()) {
+                System.out.println("Address book is empty");
+            } else {
+                List<Contacts> sortedContacts = contactsList.stream()
+                        .sorted(Comparator.comparing(Contacts::getFirstName))
+                        .collect(Collectors.toList());
+
+                sortedContacts.forEach(System.out::println);
+            }
+        }
+    }
+
 }
+
+
+
 
 
 
