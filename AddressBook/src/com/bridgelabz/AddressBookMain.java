@@ -47,7 +47,12 @@ public class AddressBookMain {
                         obj.sortPersonByNameAlphabetically();
                         System.out.println("---------------------------------------------------------------------------------------------------------------------------");
                         break;
-                    default:
+                    case 9:
+                        obj.sortPersonByCityOrStateOrZip();
+                        System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+                        break;
+                        default:
+                        System.out.println("Please enter a valid number (1, 2, or 3).");
                         break;
 
                 }

@@ -260,6 +260,55 @@ public class InputMethods {
         }
     }
 
+    public void sortPersonByCityOrStateOrZip() {
+        System.out.println("Enter the name of address book");
+        String addressBookName = sc.next();
+
+        if (!addressBooks.containsKey(addressBookName)) {
+            System.out.println("Address book with name " + addressBookName + " not found.");
+        } else {
+            List<Contacts> contactsList = addressBooks.get(addressBookName);
+
+            if (contactsList.isEmpty()) {
+                System.out.println("Contact book is empty");
+            }
+
+            else {
+
+                System.out.println("Choose the number \n1.sort by city \n2.sort by state \n3.sort by zip code");
+                int number = sc.nextInt();
+
+
+                switch (number) {
+                    case 1:
+                        List<Contacts> sortedContactsbyCity = contactsList.stream()
+                                .sorted(Comparator.comparing(Contacts::getCity))
+                                .collect(Collectors.toList());
+
+                        sortedContactsbyCity.forEach(System.out::println);
+
+                        break;
+                    case 2:
+                        List<Contacts> sortedContactsByState = contactsList.stream()
+                                .sorted(Comparator.comparing(Contacts::getState))
+                                .collect(Collectors.toList());
+
+                        sortedContactsByState.forEach(System.out::println);
+                        break;
+                    case 3:
+                        List<Contacts> sortedContactsByZip = contactsList.stream()
+                                .sorted(Comparator.comparing(Contacts::getZip))
+                                .collect(Collectors.toList());
+
+                        sortedContactsByZip.forEach(System.out::println);
+                        break;
+                    default:
+                        System.out.println("Please enter correct number!!!");
+                        break;
+                }
+            }
+        }
+    }
 }
 
 
