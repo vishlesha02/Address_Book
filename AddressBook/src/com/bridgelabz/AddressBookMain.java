@@ -10,7 +10,7 @@ public class AddressBookMain {
 
         String s;
             do {
-                System.out.println("Please Enter a Number for Following Options :\n 1) Add New Contact \n 2) Edit Contact \n 3) Delete Contact \n 4) Add Multiple Persons \n 5) Add Multiple AddressBooks");
+                System.out.println("Please Enter a Number for Following Options :\n 1) Add New Contact \n 2) Edit Contact \n 3) Delete Contact \n 4) Add Multiple Persons \n 5) Add Multiple AddressBooks \n 6) Search person by city or state from multiple address book \n 8) Count person by city or state from multiple address book \n 9) Sort by persons name alphabetically \n 10) Sort entries by city, state or zip alphabetically");
                 int option = sc.nextInt();
                 switch (option) {
                     case 1:
@@ -33,6 +33,10 @@ public class AddressBookMain {
                         break;
                     case 5:
                         obj.addMultipleAddressBook();
+                        System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+                        break;
+                    case 6:
+                        obj.searchPersonInCityOrState();
                         System.out.println("---------------------------------------------------------------------------------------------------------------------------");
                         break;
                     default:
